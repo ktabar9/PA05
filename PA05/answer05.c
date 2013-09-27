@@ -127,7 +127,8 @@ return (arr);
  * You do NOT know how many strings are in the file until you have
  * read it. Once you know how many strings there are, you can modify
  * the "numberOfStrings" variable. (Note that this is a pointer, not
- * an string) You must allocate memory to store the strings.
+ * an string) You must  the array
+ * as the pivot.  allocate memory to store the strings.
  * 
  * Once memory is allocated to store the strings, you will need to
  * re-read the values from the file. To do this, you must reset the
@@ -155,7 +156,7 @@ return (arr);
  * You will receive zero if you allocate a large array whose size is
  * independent of the number of strings in the file.  For example, if
  * you write this
- *
+compared = *(int*)k - *(int*)t; *
  * char array[10000];
  * 
  *
@@ -165,12 +166,33 @@ char * * readString(char * filename, int * numString)
 {
 FILE *fptr = 0;
 fptr = fopen(filename,"r");
+int count = 0;
+int temp = 0;
 if(fptr == NULL)
 {
     return NULL;
 }
+char t[MAXARRLENGTH];
+char ** arrString;
+fscanf(fptr,"%s",t);
+fgets(t,MAXARRLENGTH,fptr);
+while(fgets(t,MAXARRLENGTH,fptr) != NULL)
+{
+	count++;
+}
+arrString = malloc(sizeof(char*) * (count+1));
+*numString = count + 1;
+fseek(fptr,0,SEEK_SET);
 
-fgets(
+while(fgets(t,MAXARRLENGTH,fptr) != NULL)
+{
+	arrString[temp] = malloc(sizeof(char)*(strlen(t)+1));
+	strcpy(arrString[temp],t);
+	temp++;
+}
+
+fclose(fptr);
+return arrString;
 }
 
 /* ----------------------------------------------- */
@@ -221,7 +243,7 @@ void freeString(char * * arrString, int numString)
 int k;
 while(k<numString)
 {
-	free(arrString[k];
+	free(arrString[k]);
 	k++;
 }
 free(arrString);
@@ -247,7 +269,21 @@ free(arrString);
 
 int saveInteger(char * filename, int * arrInteger, int numInteger)
 {
-   return 0;
+FILE *fptr = fopen(filename,"w");
+int k = 0;
+
+if(fptr == NULL)
+{
+	return 0;
+}
+else
+{
+	for(k=0;k<numInteger;k++)
+	{
+		fprintf(fptr,"%d\n",arrInteger[k]);
+	}
+	return 1;
+}
 }
 
 /* ----------------------------------------------- */
@@ -270,7 +306,23 @@ int saveInteger(char * filename, int * arrInteger, int numInteger)
 
 int saveString(char * filename, char * * arrString, int numString)
 {
-    return 0;
+FILE *fptr = fopen(filename,"w");
+int k = 0;
+int arrLength = 0;
+
+for(k=0;k<numString;k++)
+{
+	if(fptr == NULL)
+	{
+		return 0;
+	}
+	arrLength = strlen(arrString[k]);
+	if(arrString[k][arrLength] != '\n')
+	{
+		fprintf(fptr,"%s\n",arrString[k]);
+	}
+}
+return 1;
 }
 
 /* ----------------------------------------------- */
@@ -280,6 +332,14 @@ int saveString(char * filename, char * * arrString, int numString)
  * read the Linux manual about qsort
  *
  */
+
+//My function for comparing the integers
+int intComparison(const void *k, const void *t)
+{
+	int compared = 0;
+	compared = *(int*)k - *(int*)t;
+return(compared);
+}
 
 void sortInteger(int * arrInteger, int numInteger)
 {
@@ -297,28 +357,19 @@ qsort(arrInteger,numInteger,sizeof(int),intComparison);
  *
  */
 
+//My function for comparing the strings
+int stringComparison(const void *k, const void *t)
+{
+	int compared = 0;
+	compared = strcmp(* (char * const *) k, * (char * const *) t);
+return(compared);
+}
 void sortString(char * * arrString, int numString)
 {
 qsort(arrString,numString,sizeof(char*),stringComparison);
 }
 
 
-/*
-*  My function for comparing the integers
-*/
-int integerComparison(const void *k, const void *t)
-{
-int compared = 0;
-compared = *(int*)k - *(int*)t;
-return(compared);
-}
 
-/*
-*  My function for comparing the strings
-*/
-int stringComparison(const void *k, const void *t)
-{
-int compared = 0;
-compared = *(char* const*) k, *(char* const*)t);
-return(compared);
-}
+
+
