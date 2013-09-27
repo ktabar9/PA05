@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "pa05.h"
-
+#define MAXARRLENGTH 180
 /*
  * Read a file of integers.
  *
@@ -62,7 +62,37 @@
 
 int * readInteger(char * filename, int * numInteger)
 {
+FILE *fptr = 0;
+fptr = fopen(filename,"r");
+
+int count = 0;
+int temp = 0;
+int *arr;
+int k = 0;
+
+if  (fptr == NULL)
+{
    return NULL;
+}
+
+while(fscanf(fptr,"%d",&temp)==1)
+{
+	count++;
+}
+
+arr = malloc(sizeof(fptr) * count);
+
+*numInteger = count;
+fseek(fptr,0,SEEK_SET);
+
+while(fscanf(fptr,"%d",&temp)==1)
+{
+	arr[k] = temp;
+	k++;
+}
+fclose(fptr);
+
+return (arr);
 }
 
 /* ----------------------------------------------- */
@@ -133,7 +163,14 @@ int * readInteger(char * filename, int * numInteger)
 
 char * * readString(char * filename, int * numString)
 {
+FILE *fptr = 0;
+fptr = fopen(filename,"r");
+if(fptr == NULL)
+{
     return NULL;
+}
+
+fgets(
 }
 
 /* ----------------------------------------------- */
@@ -142,6 +179,11 @@ char * * readString(char * filename, int * numString)
  */
 void printInteger(int * arrInteger, int numInteger)
 {
+int k;
+for(k = 0; k<numInteger; k++)
+{
+	printf("%d\n", arrInteger[k]);
+}
 }
 
 /* ----------------------------------------------- */
@@ -152,6 +194,11 @@ void printInteger(int * arrInteger, int numInteger)
  */
 void printString(char * * arrString, int numString)
 {
+int k;
+for(k=0;k<numString;k++)
+{
+	printf("%s\n",arrString[k]);
+}
 }
 
 /* ----------------------------------------------- */
@@ -160,6 +207,7 @@ void printString(char * * arrString, int numString)
  */
 void freeInteger(int * arrInteger, int numInteger)
 {
+free(arrInteger);
 }
 
 /* ----------------------------------------------- */
@@ -170,6 +218,13 @@ void freeInteger(int * arrInteger, int numInteger)
  */
 void freeString(char * * arrString, int numString)
 {
+int k;
+while(k<numString)
+{
+	free(arrString[k];
+	k++;
+}
+free(arrString);
 }
 
 /* ----------------------------------------------- */
@@ -228,6 +283,7 @@ int saveString(char * filename, char * * arrString, int numString)
 
 void sortInteger(int * arrInteger, int numInteger)
 {
+qsort(arrInteger,numInteger,sizeof(int),intComparison);
 }
 
 
@@ -243,6 +299,26 @@ void sortInteger(int * arrInteger, int numInteger)
 
 void sortString(char * * arrString, int numString)
 {
+qsort(arrString,numString,sizeof(char*),stringComparison);
 }
 
 
+/*
+*  My function for comparing the integers
+*/
+int integerComparison(const void *k, const void *t)
+{
+int compared = 0;
+compared = *(int*)k - *(int*)t;
+return(compared);
+}
+
+/*
+*  My function for comparing the strings
+*/
+int stringComparison(const void *k, const void *t)
+{
+int compared = 0;
+compared = *(char* const*) k, *(char* const*)t);
+return(compared);
+}
