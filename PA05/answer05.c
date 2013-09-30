@@ -85,6 +85,7 @@ arr = malloc(sizeof(fptr) * count);
 *numInteger = count;
 fseek(fptr,0,SEEK_SET);
 
+
 while(fscanf(fptr,"%d",&temp)==1)
 {
 	arr[k] = temp;
@@ -173,14 +174,14 @@ if(fptr == NULL)
     return NULL;
 }
 char t[MAXARRLENGTH];
-char ** arrString;
+char * * arrString;
 fscanf(fptr,"%s",t);
 fgets(t,MAXARRLENGTH,fptr);
 while(fgets(t,MAXARRLENGTH,fptr) != NULL)
 {
 	count++;
 }
-arrString = malloc(sizeof(char*) * (count+1));
+arrString = malloc(sizeof(char *) * (count+1));
 *numString = count + 1;
 fseek(fptr,0,SEEK_SET);
 
@@ -240,7 +241,7 @@ free(arrInteger);
  */
 void freeString(char * * arrString, int numString)
 {
-int k;
+int k=0;
 while(k<numString)
 {
 	free(arrString[k]);

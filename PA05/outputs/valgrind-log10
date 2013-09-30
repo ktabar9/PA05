@@ -1,101 +1,101 @@
-==4796== Memcheck, a memory error detector
-==4796== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
-==4796== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
-==4796== Command: ./pa05 i ./inputs/10-intinput outputs/10-intinput.out
-==4796== Parent PID: 4778
-==4796== 
---4796-- 
---4796-- Valgrind options:
---4796--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
---4796--    --tool=memcheck
---4796--    --leak-check=full
---4796--    --verbose
---4796--    --log-file=outputs/valgrind-log10
---4796-- Contents of /proc/version:
---4796--   Linux version 3.8.0-19-generic (buildd@allspice) (gcc version 4.7.3 (Ubuntu/Linaro 4.7.3-1ubuntu1) ) #29-Ubuntu SMP Wed Apr 17 18:16:28 UTC 2013
---4796-- Arch and hwcaps: AMD64, amd64-sse3-cx16
---4796-- Page sizes: currently 4096, max supported 4096
---4796-- Valgrind library directory: /usr/lib/valgrind
---4796-- Reading syms from /home/kristina/ECE264/solutions/PA05/PA05/pa05
---4796-- Reading syms from /lib/x86_64-linux-gnu/ld-2.17.so
---4796--   Considering /lib/x86_64-linux-gnu/ld-2.17.so ..
---4796--   .. CRC mismatch (computed 0e805c9a wanted d5b108bd)
---4796--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.17.so ..
---4796--   .. CRC is valid
---4796--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.17.so ..
---4796--   .. CRC is valid
---4796-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
---4796--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
---4796--   .. CRC mismatch (computed 8dadd6e3 wanted 096f8488)
---4796--    object doesn't have a symbol table
---4796--    object doesn't have a dynamic symbol table
---4796-- Scheduler: using generic scheduler lock implementation.
---4796-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
---4796-- Reading suppressions file: /usr/lib/valgrind/default.supp
-==4796== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4796-by-kristina-on-???
-==4796== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4796-by-kristina-on-???
-==4796== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4796-by-kristina-on-???
-==4796== 
-==4796== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==4796== don't want to do, unless you know exactly what you're doing,
-==4796== or are doing some strange experiment):
-==4796==   /usr/lib/valgrind/../../bin/vgdb --pid=4796 ...command...
-==4796== 
-==4796== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==4796==   /path/to/gdb ./pa05
-==4796== and then give GDB the following command
-==4796==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4796
-==4796== --pid is optional if only one valgrind process is running
-==4796== 
---4796-- REDIR: 0x4018f40 (strlen) redirected to 0x3806c7e1 (???)
---4796-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
---4796--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
---4796--   .. CRC mismatch (computed 7ae7d82a wanted 34ea3d89)
---4796--    object doesn't have a symbol table
---4796-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
---4796--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
---4796--   .. CRC mismatch (computed 272279e5 wanted bc83f658)
---4796--    object doesn't have a symbol table
---4796-- REDIR: 0x4018db0 (index) redirected to 0x4c2d440 (index)
---4796-- REDIR: 0x4018e30 (strcmp) redirected to 0x4c2e480 (strcmp)
---4796-- Reading syms from /lib/x86_64-linux-gnu/libc-2.17.so
---4796--   Considering /lib/x86_64-linux-gnu/libc-2.17.so ..
---4796--   .. CRC mismatch (computed 7a0d6b10 wanted 5a2fe04b)
---4796--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.17.so ..
---4796--   .. CRC is valid
---4796--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.17.so ..
---4796--   .. CRC is valid
---4796-- REDIR: 0x4ec1990 (strcasecmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
---4796-- REDIR: 0x4ebdd20 (strnlen) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
---4796-- REDIR: 0x4ec3c60 (strncasecmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
---4796-- REDIR: 0x4ec07a0 (memset) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
---4796-- REDIR: 0x4ec0750 (memcpy@GLIBC_2.2.5) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
---4796-- REDIR: 0x4ebf710 (__GI_strrchr) redirected to 0x4c2d260 (__GI_strrchr)
---4796-- REDIR: 0x4ebc100 (strcmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
---4796-- REDIR: 0x4f6cbd0 (__strcmp_sse42) redirected to 0x4c2e3e0 (strcmp)
---4796-- REDIR: 0x4eb7520 (malloc) redirected to 0x4c2cd10 (malloc)
---4796-- REDIR: 0x4eb79b0 (free) redirected to 0x4c2ba00 (free)
---4796-- REDIR: 0x4ec7b30 (strchrnul) redirected to 0x4c2fea0 (strchrnul)
---4796-- REDIR: 0x4ebdc40 (__GI_strlen) redirected to 0x4c2d7c0 (__GI_strlen)
-==4796== 
-==4796== HEAP SUMMARY:
-==4796==     in use at exit: 568 bytes in 1 blocks
-==4796==   total heap usage: 3 allocs, 2 frees, 1,224 bytes allocated
-==4796== 
-==4796== Searching for pointers to 1 not-freed blocks
-==4796== Checked 78,448 bytes
-==4796== 
-==4796== LEAK SUMMARY:
-==4796==    definitely lost: 0 bytes in 0 blocks
-==4796==    indirectly lost: 0 bytes in 0 blocks
-==4796==      possibly lost: 0 bytes in 0 blocks
-==4796==    still reachable: 568 bytes in 1 blocks
-==4796==         suppressed: 0 bytes in 0 blocks
-==4796== Reachable blocks (those to which a pointer was found) are not shown.
-==4796== To see them, rerun with: --leak-check=full --show-reachable=yes
-==4796== 
-==4796== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
---4796-- 
---4796-- used_suppression:      2 dl-hack3-cond-1
-==4796== 
-==4796== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==5024== Memcheck, a memory error detector
+==5024== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==5024== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==5024== Command: ./pa05 i ./inputs/10-intinput outputs/10-intinput.out
+==5024== Parent PID: 5006
+==5024== 
+--5024-- 
+--5024-- Valgrind options:
+--5024--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--5024--    --tool=memcheck
+--5024--    --leak-check=full
+--5024--    --verbose
+--5024--    --log-file=outputs/valgrind-log10
+--5024-- Contents of /proc/version:
+--5024--   Linux version 3.8.0-19-generic (buildd@allspice) (gcc version 4.7.3 (Ubuntu/Linaro 4.7.3-1ubuntu1) ) #29-Ubuntu SMP Wed Apr 17 18:16:28 UTC 2013
+--5024-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--5024-- Page sizes: currently 4096, max supported 4096
+--5024-- Valgrind library directory: /usr/lib/valgrind
+--5024-- Reading syms from /home/kristina/ECE264/solutions/PA05/PA05/pa05
+--5024-- Reading syms from /lib/x86_64-linux-gnu/ld-2.17.so
+--5024--   Considering /lib/x86_64-linux-gnu/ld-2.17.so ..
+--5024--   .. CRC mismatch (computed 0e805c9a wanted d5b108bd)
+--5024--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.17.so ..
+--5024--   .. CRC is valid
+--5024--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.17.so ..
+--5024--   .. CRC is valid
+--5024-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--5024--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--5024--   .. CRC mismatch (computed 8dadd6e3 wanted 096f8488)
+--5024--    object doesn't have a symbol table
+--5024--    object doesn't have a dynamic symbol table
+--5024-- Scheduler: using generic scheduler lock implementation.
+--5024-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--5024-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==5024== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-5024-by-kristina-on-???
+==5024== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-5024-by-kristina-on-???
+==5024== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-5024-by-kristina-on-???
+==5024== 
+==5024== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==5024== don't want to do, unless you know exactly what you're doing,
+==5024== or are doing some strange experiment):
+==5024==   /usr/lib/valgrind/../../bin/vgdb --pid=5024 ...command...
+==5024== 
+==5024== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==5024==   /path/to/gdb ./pa05
+==5024== and then give GDB the following command
+==5024==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=5024
+==5024== --pid is optional if only one valgrind process is running
+==5024== 
+--5024-- REDIR: 0x4018f40 (strlen) redirected to 0x3806c7e1 (???)
+--5024-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--5024--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--5024--   .. CRC mismatch (computed 7ae7d82a wanted 34ea3d89)
+--5024--    object doesn't have a symbol table
+--5024-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--5024--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--5024--   .. CRC mismatch (computed 272279e5 wanted bc83f658)
+--5024--    object doesn't have a symbol table
+--5024-- REDIR: 0x4018db0 (index) redirected to 0x4c2d440 (index)
+--5024-- REDIR: 0x4018e30 (strcmp) redirected to 0x4c2e480 (strcmp)
+--5024-- Reading syms from /lib/x86_64-linux-gnu/libc-2.17.so
+--5024--   Considering /lib/x86_64-linux-gnu/libc-2.17.so ..
+--5024--   .. CRC mismatch (computed 7a0d6b10 wanted 5a2fe04b)
+--5024--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.17.so ..
+--5024--   .. CRC is valid
+--5024--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.17.so ..
+--5024--   .. CRC is valid
+--5024-- REDIR: 0x4ec1990 (strcasecmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5024-- REDIR: 0x4ebdd20 (strnlen) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5024-- REDIR: 0x4ec3c60 (strncasecmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5024-- REDIR: 0x4ec07a0 (memset) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5024-- REDIR: 0x4ec0750 (memcpy@GLIBC_2.2.5) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5024-- REDIR: 0x4ebf710 (__GI_strrchr) redirected to 0x4c2d260 (__GI_strrchr)
+--5024-- REDIR: 0x4ebc100 (strcmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5024-- REDIR: 0x4f6cbd0 (__strcmp_sse42) redirected to 0x4c2e3e0 (strcmp)
+--5024-- REDIR: 0x4eb7520 (malloc) redirected to 0x4c2cd10 (malloc)
+--5024-- REDIR: 0x4eb79b0 (free) redirected to 0x4c2ba00 (free)
+--5024-- REDIR: 0x4ec7b30 (strchrnul) redirected to 0x4c2fea0 (strchrnul)
+--5024-- REDIR: 0x4ebdc40 (__GI_strlen) redirected to 0x4c2d7c0 (__GI_strlen)
+==5024== 
+==5024== HEAP SUMMARY:
+==5024==     in use at exit: 568 bytes in 1 blocks
+==5024==   total heap usage: 3 allocs, 2 frees, 1,224 bytes allocated
+==5024== 
+==5024== Searching for pointers to 1 not-freed blocks
+==5024== Checked 78,448 bytes
+==5024== 
+==5024== LEAK SUMMARY:
+==5024==    definitely lost: 0 bytes in 0 blocks
+==5024==    indirectly lost: 0 bytes in 0 blocks
+==5024==      possibly lost: 0 bytes in 0 blocks
+==5024==    still reachable: 568 bytes in 1 blocks
+==5024==         suppressed: 0 bytes in 0 blocks
+==5024== Reachable blocks (those to which a pointer was found) are not shown.
+==5024== To see them, rerun with: --leak-check=full --show-reachable=yes
+==5024== 
+==5024== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--5024-- 
+--5024-- used_suppression:      2 dl-hack3-cond-1
+==5024== 
+==5024== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)

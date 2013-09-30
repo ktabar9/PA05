@@ -1,0 +1,106 @@
+==5175== Memcheck, a memory error detector
+==5175== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==5175== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==5175== Command: ./pa05 s ./inputs/16-drseuss outputs/16-drseuss.out
+==5175== Parent PID: 5157
+==5175== 
+--5175-- 
+--5175-- Valgrind options:
+--5175--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--5175--    --tool=memcheck
+--5175--    --leak-check=full
+--5175--    --verbose
+--5175--    --log-file=outputs/valgrind-log16
+--5175-- Contents of /proc/version:
+--5175--   Linux version 3.8.0-19-generic (buildd@allspice) (gcc version 4.7.3 (Ubuntu/Linaro 4.7.3-1ubuntu1) ) #29-Ubuntu SMP Wed Apr 17 18:16:28 UTC 2013
+--5175-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--5175-- Page sizes: currently 4096, max supported 4096
+--5175-- Valgrind library directory: /usr/lib/valgrind
+--5175-- Reading syms from /home/kristina/ECE264/solutions/PA05/PA05/pa05
+--5175-- Reading syms from /lib/x86_64-linux-gnu/ld-2.17.so
+--5175--   Considering /lib/x86_64-linux-gnu/ld-2.17.so ..
+--5175--   .. CRC mismatch (computed 0e805c9a wanted d5b108bd)
+--5175--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.17.so ..
+--5175--   .. CRC is valid
+--5175--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.17.so ..
+--5175--   .. CRC is valid
+--5175-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--5175--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--5175--   .. CRC mismatch (computed 8dadd6e3 wanted 096f8488)
+--5175--    object doesn't have a symbol table
+--5175--    object doesn't have a dynamic symbol table
+--5175-- Scheduler: using generic scheduler lock implementation.
+--5175-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--5175-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==5175== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-5175-by-kristina-on-???
+==5175== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-5175-by-kristina-on-???
+==5175== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-5175-by-kristina-on-???
+==5175== 
+==5175== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==5175== don't want to do, unless you know exactly what you're doing,
+==5175== or are doing some strange experiment):
+==5175==   /usr/lib/valgrind/../../bin/vgdb --pid=5175 ...command...
+==5175== 
+==5175== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==5175==   /path/to/gdb ./pa05
+==5175== and then give GDB the following command
+==5175==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=5175
+==5175== --pid is optional if only one valgrind process is running
+==5175== 
+--5175-- REDIR: 0x4018f40 (strlen) redirected to 0x3806c7e1 (???)
+--5175-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--5175--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--5175--   .. CRC mismatch (computed 7ae7d82a wanted 34ea3d89)
+--5175--    object doesn't have a symbol table
+--5175-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--5175--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--5175--   .. CRC mismatch (computed 272279e5 wanted bc83f658)
+--5175--    object doesn't have a symbol table
+--5175-- REDIR: 0x4018db0 (index) redirected to 0x4c2d440 (index)
+--5175-- REDIR: 0x4018e30 (strcmp) redirected to 0x4c2e480 (strcmp)
+--5175-- Reading syms from /lib/x86_64-linux-gnu/libc-2.17.so
+--5175--   Considering /lib/x86_64-linux-gnu/libc-2.17.so ..
+--5175--   .. CRC mismatch (computed 7a0d6b10 wanted 5a2fe04b)
+--5175--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.17.so ..
+--5175--   .. CRC is valid
+--5175--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.17.so ..
+--5175--   .. CRC is valid
+--5175-- REDIR: 0x4ec1990 (strcasecmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5175-- REDIR: 0x4ebdd20 (strnlen) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5175-- REDIR: 0x4ec3c60 (strncasecmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5175-- REDIR: 0x4ec07a0 (memset) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5175-- REDIR: 0x4ec0750 (memcpy@GLIBC_2.2.5) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5175-- REDIR: 0x4ebf710 (__GI_strrchr) redirected to 0x4c2d260 (__GI_strrchr)
+--5175-- REDIR: 0x4ebc100 (strcmp) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5175-- REDIR: 0x4f6cbd0 (__strcmp_sse42) redirected to 0x4c2e3e0 (strcmp)
+--5175-- REDIR: 0x4eb7520 (malloc) redirected to 0x4c2cd10 (malloc)
+--5175-- REDIR: 0x4ebfe10 (memchr) redirected to 0x4c2e520 (memchr)
+--5175-- REDIR: 0x4ebdbf0 (strlen) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5175-- REDIR: 0x4f9d700 (__strlen_sse2_pminub) redirected to 0x4c2d7a0 (strlen)
+--5175-- REDIR: 0x4ebd590 (strcpy) redirected to 0x4a25710 (_vgnU_ifunc_wrapper)
+--5175-- REDIR: 0x4ecbc90 (__strcpy_sse2_unaligned) redirected to 0x4c2d7e0 (strcpy)
+--5175-- REDIR: 0x4eb79b0 (free) redirected to 0x4c2ba00 (free)
+--5175-- REDIR: 0x4ebdc40 (__GI_strlen) redirected to 0x4c2d7c0 (__GI_strlen)
+--5175-- REDIR: 0x4ec7b30 (strchrnul) redirected to 0x4c2fea0 (strchrnul)
+==5175== 
+==5175== HEAP SUMMARY:
+==5175==     in use at exit: 568 bytes in 1 blocks
+==5175==   total heap usage: 18 allocs, 17 frees, 1,793 bytes allocated
+==5175== 
+==5175== Searching for pointers to 1 not-freed blocks
+==5175== Checked 78,448 bytes
+==5175== 
+==5175== LEAK SUMMARY:
+==5175==    definitely lost: 0 bytes in 0 blocks
+==5175==    indirectly lost: 0 bytes in 0 blocks
+==5175==      possibly lost: 0 bytes in 0 blocks
+==5175==    still reachable: 568 bytes in 1 blocks
+==5175==         suppressed: 0 bytes in 0 blocks
+==5175== Reachable blocks (those to which a pointer was found) are not shown.
+==5175== To see them, rerun with: --leak-check=full --show-reachable=yes
+==5175== 
+==5175== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+--5175-- 
+--5175-- used_suppression:      2 dl-hack3-cond-1
+==5175== 
+==5175== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
